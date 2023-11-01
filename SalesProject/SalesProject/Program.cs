@@ -3,7 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 using SalesProject.Data;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SalesProjectContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SalesProjectContext") ?? throw new InvalidOperationException("Connection string 'SalesProjectContext' not found.")));
+    options.UseMySql(builder.Configuration.GetConnectionString("SalesProjectContext"),
+    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SalesProjectContext")),
+    builder => builder.MigrationsAssembly("SalesProject")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
