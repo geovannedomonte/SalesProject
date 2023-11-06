@@ -1,4 +1,7 @@
-﻿namespace SalesProject.Models
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace SalesProject.Models
 {
     public class Seller
     {
@@ -8,7 +11,9 @@
         public DateTime birthDate { get; set; }
         public double baseSalary { get; set; }
 
-        public Department Department { get; set; }
+        public Department? Department { get; set; }
+
+        public ICollection<SallesRecord> Sales { get; set; } = new List<SallesRecord>();
     }
 
 }
