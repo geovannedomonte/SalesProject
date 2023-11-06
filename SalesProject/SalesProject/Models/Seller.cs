@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SalesProject.Models
 {
@@ -27,6 +28,21 @@ namespace SalesProject.Models
             this.birthDate = birthDate;
             this.baseSalary = baseSalary;
             Department = department;
+        }
+
+        public void AddSales (SallesRecord sr)
+        {
+            Sales.Add(sr);
+        }
+
+        public void RemoveSales (SallesRecord sr) 
+        {
+            Sales.Remove(sr);
+        }
+
+        public double TotalSales (DateTime initial, DateTime final) 
+        {
+            return Sales.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Amount);
         }
     }
 
