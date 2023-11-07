@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalesProject.Data;
 
@@ -10,9 +11,10 @@ using SalesProject.Data;
 namespace SalesProject.Migrations
 {
     [DbContext(typeof(SalesProjectContext))]
-    partial class SalesProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20231107001739_M02-metodos")]
+    partial class M02metodos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
