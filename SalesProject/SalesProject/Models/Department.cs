@@ -1,4 +1,6 @@
-﻿namespace SalesProject.Models
+﻿using System;
+using System.Linq;
+namespace SalesProject.Models
 {
     public class Department
     {
@@ -16,6 +18,17 @@
         {
             Id = id;
             Name = name;
+        }
+
+        public void AddSeller (Seller seller) 
+        {
+            Sellers.Add(seller);
+        }
+
+        public double TotalSales (DateTime initial,  DateTime final) 
+        {
+            return Sellers.Sum(Sellers => Sellers.TotalSales(initial, final));
+
         }
     }
 }
