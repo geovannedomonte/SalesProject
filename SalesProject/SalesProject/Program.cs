@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesProject.Data;
+using SalesProject.Services;
 
 
 
@@ -13,6 +14,7 @@ builder.Services.AddDbContext<SalesProjectContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<SeedingService>();
+builder.Services.AddScoped<SellerService>();
 
 
 
